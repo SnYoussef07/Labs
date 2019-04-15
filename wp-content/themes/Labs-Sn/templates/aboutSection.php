@@ -44,13 +44,9 @@
     <div class="about-contant">
       <div class="container">
         <div class="section-title">
-          <!--<h2>Get in <span>the Lab</span> and discover the world</h2>-->
-          <?php
-$monTxt = get_theme_mod('about_id_text');
-$monTxt = str_replace("[", "<span>", $monTxt);
-$monTxt = str_replace("]", "</span>", $monTxt);
-?>
-          <h2><?=$monTxt?></h2>
+          <!--  -->
+          <h2><?=hookToSpan(get_theme_mod('about_id_text'));?></h2>
+          <!--  -->
         </div>
         <div class="row">
           <div class="col-md-6">

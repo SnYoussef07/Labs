@@ -195,6 +195,7 @@ class MgCustomizer
             'label' => 'Titre du services',
             'section' => 'section-services',
             'settings' => 'services_titre']);
+            
     }
 
 }

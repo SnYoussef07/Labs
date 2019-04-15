@@ -2,13 +2,9 @@
 <div class="services-section spad">
     <div class="container">
       <div class="section-title dark">
-        <?php
-$monTxt = get_theme_mod('services_titre');
-$monTxt = str_replace("[", "<span>", $monTxt);
-$monTxt = str_replace("]", "</span>", $monTxt);
-?>
-        <h2><?=$monTxt;?></h2>
-
+        <!--  -->
+        <h2><?=hookToSpan(get_theme_mod('services_titre'));?></h2>
+        <!--  -->
       </div>
       <div class="row">
         <!-- single service -->
