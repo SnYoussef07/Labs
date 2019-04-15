@@ -9,7 +9,7 @@
         <!-- single member -->
         <div class="col-sm-4">
           <div class="member">
-            <img src="img/team/1.jpg" alt="">
+            <img src="<?php echo get_template_directory_uri(); ?>/img/team/1.jpg" alt="">
             <h2>Christinne Williams</h2>
             <h3>Project Manager</h3>
           </div>
@@ -17,7 +17,7 @@
         <!-- single member -->
         <div class="col-sm-4">
           <div class="member">
-            <img src="img/team/2.jpg" alt="">
+            <img src="<?php echo get_template_directory_uri(); ?>/img/team/2.jpg" alt="">
             <h2>Christinne Williams</h2>
             <h3>Junior developer</h3>
           </div>
@@ -25,7 +25,7 @@
         <!-- single member -->
         <div class="col-sm-4">
           <div class="member">
-            <img src="img/team/3.jpg" alt="">
+            <img src="<?php echo get_template_directory_uri(); ?>/img/team/3.jpg" alt="">
             <h2>Christinne Williams</h2>
             <h3>Digital designer</h3>
           </div>

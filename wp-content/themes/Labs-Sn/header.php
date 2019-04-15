@@ -33,7 +33,7 @@
   <!-- Page Preloder -->
   <div id="preloder">
     <div class="loader">
-      <img src="img/logo.png" alt="">
+      <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="">
       <h2>Loading.....</h2>
     </div>
   </div>
@@ -42,7 +42,7 @@
   <!-- Header section -->
   <header class="header-section">
     <div class="logo">
-      <img src="img/logo.png" alt=""><!-- Logo -->
+      <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt=""><!-- Logo -->
     </div>
     <!-- Navigation -->
     <div class="responsive"><i class="fa fa-bars"></i></div>

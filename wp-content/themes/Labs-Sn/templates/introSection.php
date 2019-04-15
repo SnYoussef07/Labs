@@ -2,7 +2,7 @@
 <div class="hero-section">
     <div class="hero-content">
       <div class="hero-center">
-        <img src="img/big-logo.png" alt="">
+        <img src="<?php echo get_template_directory_uri(); ?>/img/big-logo.png" alt="">
         <p>Get your freebie template now!</p>
       </div>
     </div>
