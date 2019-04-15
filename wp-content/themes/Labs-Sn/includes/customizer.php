@@ -61,13 +61,39 @@ class MgCustomizer
             'type' => 'theme_mod',
             'sanitize_callback' => 'sanitize_textarea_field',
         ]);
-        /* paragraphe Droit*/
         $wp_customize->add_control('about_contro_paragraphe_droit', [
             'label' => 'Paragraphe Droit',
             'section' => 'section-titre',
             'settings' => 'about_id_paragraphe_droit',
             'type' => 'textarea']);
 
+        /* image video  */
+        /* img 1*/
+        $wp_customize->add_setting('image_video', [
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_textarea_field',
+        ]);
+        $wp_customize->add_control(
+            new WP_Customize_Image_Control(
+                $wp_customize,
+                'video-img',
+                array(
+                    'label' => 'Image de la video',
+                    'section' => 'section-titre',
+                    'settings' => 'image_video',
+                    'context' => 'your_setting_context',
+                )
+            )
+        );
+        /* Lien Vers Youtube */
+        $wp_customize->add_setting('about_id_lien_video', [
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_textarea_field',
+        ]);
+        $wp_customize->add_control('about_contro_lien_video', [
+            'label' => 'Lien video Youtub',
+            'section' => 'section-titre',
+            'settings' => 'about_id_lien_video']);
 
         /* ****IMAGE CAROUSEL**** */
         /* img 1*/

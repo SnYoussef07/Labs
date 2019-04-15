@@ -45,7 +45,12 @@
       <div class="container">
         <div class="section-title">
           <!--<h2>Get in <span>the Lab</span> and discover the world</h2>-->
-          <h2><?=get_theme_mod('about_id_text');?></h2>
+          <?php
+$monTxt = get_theme_mod('about_id_text');
+$monTxt = str_replace("[", "<span>", $monTxt);
+$monTxt = str_replace("]", "</span>", $monTxt);
+?>
+          <h2><?=$monTxt?></h2>
         </div>
         <div class="row">
           <div class="col-md-6">
@@ -62,8 +67,9 @@
         <div class="intro-video">
           <div class="row">
             <div class="col-md-8 col-md-offset-2">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/video.jpg" alt="">
-              <a href="https://www.youtube.com/watch?v=JgHfx2v9zOU" class="video-popup">
+
+              <img src="<?=get_theme_mod('image_video');?>" alt="">
+              <a href="<?=get_theme_mod('about_id_lien_video');?>" class="video-popup">
                 <i class="fa fa-play"></i>
               </a>
             </div>

@@ -11,3 +11,4 @@ get_template_part("templates/promotionSection");
 get_template_part("templates/contactForm");
 
 get_footer();
+
