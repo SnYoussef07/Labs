@@ -22,6 +22,11 @@ class MgCustomizer
             'title' => 'Section About',
         ]);
 
+        $wp_customize->add_section('section-img-carousel', [
+            'panel' => 'coding-panel-Section',
+            'title' => 'Section image carousel',
+        ]);
+
         /* **les Control et setting** */
 
         /* Titre de section about */
@@ -57,6 +62,44 @@ class MgCustomizer
             'section' => 'section-titre',
             'settings' => 'about_id_paragraphe_droit',
             'type' => 'textarea']);
+
+        /* ****IMAGE CAROUSEL**** */
+        /* img 1*/
+        $wp_customize->add_setting('carousel-img-1', [
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_textarea_field',
+        ]);
+        $wp_customize->add_control(
+            new WP_Customize_Image_Control(
+                $wp_customize,
+                'img-1',
+                array(
+                    'label' => 'Upload image carousel 1',
+                    'section' => 'section-img-carousel',
+                    'settings' => 'carousel-img-1',
+                    'context' => 'your_setting_context',
+                )
+            )
+        );
+        /* img 2*/
+        $wp_customize->add_setting('carousel-img-2', [
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_textarea_field',
+        ]);
+        $wp_customize->add_control(
+            new WP_Customize_Image_Control(
+                $wp_customize,
+                'img-2',
+                array(
+                    'label' => 'Upload image carousel 2',
+                    'section' => 'section-img-carousel',
+                    'settings' => 'carousel-img-2',
+                    'context' => 'your_setting_context',
+                )
+            )
+        );
+        /* ****logo Labs**** */
+
     }
 
 }

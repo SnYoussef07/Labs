@@ -8,8 +8,8 @@
     </div>
     <!-- slider -->
     <div id="hero-slider" class="owl-carousel">
-      <div class="item  hero-item" data-bg="<?php echo get_template_directory_uri(); ?>/img/01.jpg"></div>
-      <div class="item  hero-item" data-bg="<?php echo get_template_directory_uri(); ?>/img/02.jpg"></div>
+      <div class="item  hero-item" data-bg="<?=get_theme_mod('carousel-img-1');?>"></div>
+      <div class="item  hero-item" data-bg="<?=get_theme_mod('carousel-img-2');?>"></div>
     </div>
   </div>
   <!-- Intro Section -->
