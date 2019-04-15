@@ -42,6 +42,21 @@ class MgCustomizer
             'title' => 'Section Services',
         ]);
 
+        $wp_customize->add_section('section-team', [
+            'panel' => 'coding-panel-Section',
+            'title' => 'Section Team',
+        ]);
+
+        $wp_customize->add_section('section-promotion', [
+            'panel' => 'coding-panel-Section',
+            'title' => 'Section Promotion',
+        ]);
+
+        $wp_customize->add_section('section-contact', [
+            'panel' => 'coding-panel-Section',
+            'title' => 'Section Contact',
+        ]);
+
         /* ** TITRE ET TEXT DE ABOUT ** */
 
         /* Titre de section about */
@@ -195,7 +210,74 @@ class MgCustomizer
             'label' => 'Titre du services',
             'section' => 'section-services',
             'settings' => 'services_titre']);
-            
+
+        /* **** SECTION TEAM **** */
+
+        $wp_customize->add_setting('team_titre', [
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_textarea_field',
+        ]);
+        $wp_customize->add_control('team_control_titre', [
+            'label' => 'Titre du team',
+            'section' => 'section-team',
+            'settings' => 'team_titre']);
+
+        /* **** SECTION PROMOTION **** */
+        $wp_customize->add_setting('promotion_titre', [
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_textarea_field',
+        ]);
+        $wp_customize->add_control('promotion_control_titre', [
+            'label' => 'Titre du promotion',
+            'section' => 'section-promotion',
+            'settings' => 'promotion_titre']);
+        /* Paragraphe */
+        $wp_customize->add_setting('promotion_Paragraphe', [
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_textarea_field',
+        ]);
+        $wp_customize->add_control('promotion_control_Paragraphe', [
+            'label' => 'Paragraphe du promotion',
+            'section' => 'section-promotion',
+            'settings' => 'promotion_Paragraphe']);
+        /* **** SECTION CONTACT **** */
+        $wp_customize->add_setting('contact_extrait', [
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_textarea_field',
+        ]);
+        $wp_customize->add_control('contact_control_extrait', [
+            'label' => 'extrait de contact',
+            'section' => 'section-contact',
+            'settings' => 'contact_extrait',
+            'type' => 'textarea']);
+        /* Adress */
+        $wp_customize->add_setting('contact_adress', [
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_textarea_field',
+        ]);
+        $wp_customize->add_control('contact_control_adress', [
+            'label' => 'adress de contact',
+            'section' => 'section-contact',
+            'settings' => 'contact_adress']);
+        /* Email */
+        $wp_customize->add_setting('contact_email', [
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_textarea_field',
+        ]);
+        $wp_customize->add_control('contact_control_email', [
+            'label' => 'email de contact',
+            'section' => 'section-contact',
+            'settings' => 'contact_email']);
+        /* GSM */
+        $wp_customize->add_setting('contact_gsm', [
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_textarea_field',
+        ]);
+        $wp_customize->add_control('contact_control_gsm', [
+            'label' => 'gsm de contact',
+            'section' => 'section-contact',
+            'settings' => 'contact_gsm']);
+
     }
 
 }
