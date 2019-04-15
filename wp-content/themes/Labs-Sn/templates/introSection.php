@@ -2,7 +2,7 @@
 <div class="hero-section">
     <div class="hero-content">
       <div class="hero-center">
-        <img src="<?php echo get_template_directory_uri(); ?>/img/big-logo.png" alt="">
+        <img src="<?=get_theme_mod('main-big-logo');?>" alt="">
         <p><?php echo get_bloginfo('description'); ?></p>
       </div>
     </div>

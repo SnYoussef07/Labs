@@ -27,7 +27,12 @@ class MgCustomizer
             'title' => 'Section image carousel',
         ]);
 
-        /* **les Control et setting** */
+        $wp_customize->add_section('section-logo', [
+            'panel' => 'coding-panel-Section',
+            'title' => 'Section Logo',
+        ]);
+
+        /* ** TITRE ET TEXT DE ABOUT ** */
 
         /* Titre de section about */
         $wp_customize->add_setting('about_id_text', [
@@ -62,6 +67,7 @@ class MgCustomizer
             'section' => 'section-titre',
             'settings' => 'about_id_paragraphe_droit',
             'type' => 'textarea']);
+
 
         /* ****IMAGE CAROUSEL**** */
         /* img 1*/
@@ -98,7 +104,42 @@ class MgCustomizer
                 )
             )
         );
-        /* ****logo Labs**** */
+
+        /* **** LOGO LABS **** */
+        /* pti logo */
+        $wp_customize->add_setting('main-logo', [
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_textarea_field',
+        ]);
+        $wp_customize->add_control(
+            new WP_Customize_Image_Control(
+                $wp_customize,
+                'logo',
+                array(
+                    'label' => 'Logo navbar',
+                    'section' => 'section-logo',
+                    'settings' => 'main-logo',
+                    'context' => 'your_setting_context',
+                )
+            )
+        );
+        /* big logo */
+        $wp_customize->add_setting('main-big-logo', [
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_textarea_field',
+        ]);
+        $wp_customize->add_control(
+            new WP_Customize_Image_Control(
+                $wp_customize,
+                'big-logo',
+                array(
+                    'label' => 'Big Logo intro',
+                    'section' => 'section-logo',
+                    'settings' => 'main-big-logo',
+                    'context' => 'your_setting_context',
+                )
+            )
+        );
 
     }
 
