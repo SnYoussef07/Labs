@@ -2,7 +2,13 @@
 <div class="services-section spad">
     <div class="container">
       <div class="section-title dark">
-        <h2>Get in <span>the Lab</span> and see the services</h2>
+        <?php
+$monTxt = get_theme_mod('services_titre');
+$monTxt = str_replace("[", "<span>", $monTxt);
+$monTxt = str_replace("]", "</span>", $monTxt);
+?>
+        <h2><?=$monTxt;?></h2>
+
       </div>
       <div class="row">
         <!-- single service -->

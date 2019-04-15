@@ -32,6 +32,16 @@ class MgCustomizer
             'title' => 'Section Logo',
         ]);
 
+        $wp_customize->add_section('section-testimonial', [
+            'panel' => 'coding-panel-Section',
+            'title' => 'Section Testimonial',
+        ]);
+
+        $wp_customize->add_section('section-services', [
+            'panel' => 'coding-panel-Section',
+            'title' => 'Section Services',
+        ]);
+
         /* ** TITRE ET TEXT DE ABOUT ** */
 
         /* Titre de section about */
@@ -166,7 +176,25 @@ class MgCustomizer
                 )
             )
         );
+        /* **** SECTION TESTIMONIAL **** */
+        $wp_customize->add_setting('testimonial_titre', [
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_textarea_field',
+        ]);
+        $wp_customize->add_control('testimonial_control_titre', [
+            'label' => 'Titre du testimonial',
+            'section' => 'section-testimonial',
+            'settings' => 'testimonial_titre']);
 
+        /* **** SECTION SERVICES **** */
+        $wp_customize->add_setting('services_titre', [
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_textarea_field',
+        ]);
+        $wp_customize->add_control('services_control_titre', [
+            'label' => 'Titre du services',
+            'section' => 'section-services',
+            'settings' => 'services_titre']);
     }
 
 }
