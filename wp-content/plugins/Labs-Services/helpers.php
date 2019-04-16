@@ -20,7 +20,7 @@ function view($path, $data = array())
  * @param array $data le tableau resultant de get_post_meta
  * @return void
  */
-/* function extract_data_attr(string $key, array $data)
+function extract_data_attr(string $key, array $data)
 {
     // Vérification que la clé exist bien dans le tableau
     if (array_key_exists($key, $data)) {
@@ -29,13 +29,13 @@ function view($path, $data = array())
     }
     return '';
 }
-
+/*
 // Je créer un helper qui attend 2 paramètre que j'ai nomé $post_id et $data et qui sont remplies par la function save du fichier RecipeDetailsMetabox.php
 function update_post_metas($post_id, $data)
 {
-    // Je fais un foreach pour chaque donnée dans le tableau data je veux récupéré la clef et la valeur
-    foreach ($data as $key => $value) {
-        // j'utilise la function wordpress update_post_meta qui attend 3 paramètres, l'id du post qu'il faut sauvegarder ou mettre à jours, la clef (letiquette) quon donne a la row (tirroir) dans la base de donné, et la valeur qu'on stock dans cette row
-        update_post_meta($post_id, $key, $value);
-    }
+// Je fais un foreach pour chaque donnée dans le tableau data je veux récupéré la clef et la valeur
+foreach ($data as $key => $value) {
+// j'utilise la function wordpress update_post_meta qui attend 3 paramètres, l'id du post qu'il faut sauvegarder ou mettre à jours, la clef (letiquette) quon donne a la row (tirroir) dans la base de donné, et la valeur qu'on stock dans cette row
+update_post_meta($post_id, $key, $value);
+}
 } */
