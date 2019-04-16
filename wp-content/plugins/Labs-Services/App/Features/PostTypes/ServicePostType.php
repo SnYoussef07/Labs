@@ -41,7 +41,7 @@ class ServicePostType
                 ],
                 'taxonomies' => ['category'],
                 'menu_icon' => 'dashicons-analytics',
-                'supports' => ['title', 'editor', 'excerpt', 'thumbnail'],
+                'supports' => ['title', 'editor', 'thumbnail'],
             ]
         );
     }

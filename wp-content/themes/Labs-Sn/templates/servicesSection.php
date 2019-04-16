@@ -1,4 +1,33 @@
 <!-- Services section -->
+<div>
+<?php
+$args = [
+    'post_type' => 'service',
+];
+$query = new WP_Query($args);
+?>
+<section id="portfolio">
+    <div class="container-fluid p-0">
+      <div class="row no-gutters">
+    <?php while ($query->have_posts()): $query->the_post();?>
+	      <div class="col-md-4 col-sm-6">
+			    <div class="service">
+			      <div class="icon">
+			        <i class="flaticon-025-imagination"></i>
+			      </div>
+			      <div class="service-text">
+			        <h2><?=the_title();?></h2>
+			        <p><?=the_content();?></p>
+			      </div>
+			    </div>
+			  </div>
+	<?php
+endwhile;
+wp_reset_postdata();
+?>
+</div>
+
+
 <div class="services-section spad">
     <div class="container">
       <div class="section-title dark">
