@@ -10,6 +10,5 @@ class Page
      */
     public static function init()
     {
-        AddService::init();
     }
 }

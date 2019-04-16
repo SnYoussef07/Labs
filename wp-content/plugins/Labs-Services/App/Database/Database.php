@@ -22,6 +22,5 @@ class Database
      */
     public static function migration()
     {
-        CreateServiceTable::up();
     }
 }

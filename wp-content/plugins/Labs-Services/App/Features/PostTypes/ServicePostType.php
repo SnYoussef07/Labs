@@ -39,7 +39,7 @@ class ServicePostType
                 'rewrite' => [
                     'slug' => 'service',
                 ],
-                'taxonomies' => ['category', 'post_tag'],
+                'taxonomies' => ['category'],
                 'menu_icon' => 'dashicons-analytics',
                 'supports' => ['title', 'editor', 'excerpt', 'thumbnail'],
             ]
