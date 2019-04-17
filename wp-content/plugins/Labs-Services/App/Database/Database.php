@@ -1,7 +1,7 @@
 <?php
 namespace App\Database;
 
-use App\Database\Migrations\CreateServiceTable;
+use App\Database\Migrations\CreateMailTable;
 
 class Database
 {
@@ -22,5 +22,6 @@ class Database
      */
     public static function migration()
     {
+        CreateMailTable::up();
     }
 }
