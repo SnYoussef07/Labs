@@ -1,5 +1,4 @@
 <!-- Services section -->
-<div>
 <?php
 $args = [
     'post_type' => 'service',
