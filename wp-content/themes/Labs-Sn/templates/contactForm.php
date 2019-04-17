@@ -14,6 +14,7 @@
           <p class="con-item"><?=get_theme_mod('contact_email')?></p>
           <p></p>
         </div>
+
         <!-- contact form -->
         <div class="col-md-6 col-pull">
           <form class="form-class" id="con_form">
