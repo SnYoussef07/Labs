@@ -22,6 +22,6 @@ class Database
      */
     public static function migration()
     {
-        CreateMailTable::up();
+        CreateNewsletterTable::up();
     }
 }

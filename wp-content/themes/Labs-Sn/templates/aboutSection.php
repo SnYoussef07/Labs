@@ -16,20 +16,19 @@ $query = new WP_Query($args);
         <div class="row">
 
         <?php while ($query->have_posts()): $query->the_post();?>
-												      <?php
+													      <?php
     $icone = get_post_meta(get_the_ID(), "service_icone_choic", true);
-
     ?>
-					          <div class="col-md-4 col-sm-12">
-					            <div class="lab-card">
-					              <div class="icon">
-					                <i class="<?=$icone?>"></i>
-					              </div>
-				                <h2><?=the_title();?></h2>
-				                <p><?=the_content();?></p>
-					            </div>
-					          </div>
-					          <?php
+						          <div class="col-md-4 col-sm-12">
+						            <div class="lab-card">
+						              <div class="icon">
+						                <i class="<?=$icone?>"></i>
+						              </div>
+					                <h2><?=the_title();?></h2>
+					                <p><?=the_content();?></p>
+						            </div>
+						          </div>
+						          <?php
 endwhile;
 wp_reset_postdata();
 ?>

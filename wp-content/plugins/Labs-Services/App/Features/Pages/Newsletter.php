@@ -3,7 +3,7 @@ namespace App\Features\Pages;
 
 use App\Http\Controllers\MailController;
 
-class SendMail
+class Newsletter
 {
     /**
      * Initialisation de la page.
@@ -14,10 +14,10 @@ class SendMail
     {
         //https: //developer.wordpress.org/reference/functions/add_menu_page/
         add_menu_page(
-            __('List des email des Client'), // Le titre qui s'affichera sur la page
-            __('Mail Client'), // le texte dans le menu
+            __('List des inscrit a la Newsletter'), // Le titre qui s'affichera sur la page
+            __('Newsletter List'), // le texte dans le menu
             'edit_private_pages', // la capacité qu'il faut posséder en tant qu'utilisateur pour avoir accès à cette page (les roles et capacité seront vue plus tard)
-            'mail-client', // Le slug du menu
+            'newsletter-client', // Le slug du menu
             [self::class, 'render'], // La méthode qui va afficher la page
             'dashicons-email-alt', // L'icon dans le menu
             26// la position dans le menu (à comparer avec la valeur deposition des autres liens menu que l'on retrouve dans la doc).
@@ -33,7 +33,8 @@ class SendMail
     {
         /* $action = isset($_GET["action"]) ? $_GET["action"] : "index";
         call_user_func([MailController::class, $action]); */
-        echo "Hello";
+        view('pages/newsletter-list');
+        //echo "Hello";
     }
 
 }

@@ -1,15 +1,12 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Http\Models\Mail;
 use App\Http\Requests\Request;
 
 class MailController
 {
     public static function send()
     {
-        global $wpdb;
-
         /*  if (!wp_verify_nonce($_POST['_wpnonce'], 'send-mail')) {
         return;
         }; */
@@ -36,16 +33,6 @@ class MailController
                 'status' => 'success',
                 'message' => 'votre e-mail a bien été envoyé',
             ];
-
-            $mail = new Mail();
-            $mail->userid = get_current_user_id();
-            $mail->lname = $name;
-            $mail->lsubject = $subject;
-            $mail->email = $email;
-            $mail->content = $message;
-            // Sauvegarde du mail dans la base de donnée
-            $mail->save();
-
         } else {
             $_SESSION['notice'] = [
                 'status' => 'error',
@@ -58,47 +45,18 @@ class MailController
 
     public static function index()
     {
-        // on va chercher toute les entrés de la table dont le model mail s'occupe et on inverse l'ordre afin d'avoir le plus récent en premier.
-        $mails = array_reverse(Mail::all());
-        if (isset($_SESSION['old'])) {
-            $old = $_SESSION['old'];
-            unset($_SESSION['old']);
-        }
-        // on envoi notre variable $old qui contient les anciennes valeurs dans notre view send-mail pour qu'on puisse afficher son contenu dans les champs.
-        view('pages/send-mail', compact('old', 'mails'));
+
     }
 
     public static function show()
     {
-        // Maintenant qu'on est ici on à besoin de savoir quel mail est demandé on va donc dans notre url voir que vaut id= ?? et on le stock dans une variable $id
-        $id = $_GET['id'];
-        // on fait appel à notre function find et dans passe en paramètre l'id pour que notre function sache l'émail à aller chercher dans notre BDD
-        $mail = Mail::find($id);
-        // on retourn une vue avec le contenu de Mail, cette vue n'est pas encore crée nous allons la crée au prochain commit. Pour l'instant si vous cliquez il essaie d'affiche un fichier qu'il ne trouve pas et vous vous retrouvez donc avec un fond gris.
-        view('pages/show-mail', compact('mail'));
+
     }
 
     // function qui est lancé via le hook admin_action_mail-delete ligne 23 du fichier hooks.php.
     public static function delete()
     {
-        // on récupère l'id envoyé via $_POST notre formulaire ligne 29 dans show-mail.html.php
-        $id = $_POST['id'];
-        // si notre function delete($id) est lancée alors on rempli SESSION avec un status et un message positif puis on redirect sur notre page mail-client
-        if (Mail::delete($id)) {
-            $_SESSION['notice'] = [
-                'status' => 'success',
-                'message' => 'Le mail a bien été supprimé',
-            ];
-            wp_safe_redirect(menu_page_url('mail-client'));
-        }
-        // Si le mail na pas été supprimé on renvoi sur la page avec une notification négative
-        else {
-            $_SESSION['notice'] = [
-                'status' => 'error',
-                'message' => 'un Problème est survenu, veuillez rééssayer',
-            ];
-            wp_safe_redirect(wp_get_referer());
-        }
+
     }
 
 }
