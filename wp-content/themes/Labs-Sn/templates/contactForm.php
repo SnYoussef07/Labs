@@ -18,7 +18,7 @@
         <!-- contact form -->
         <div class="col-md-6 col-pull">
           <form class="form-class" id="con_form" action="<?=get_admin_url() . '/?action=send-mail';?>" method="post">
-          <input type="hidden" name="action" value="send-mail">  
+          <input type="hidden" name="action" value="send-mail">
           <div class="row">
               <div class="col-sm-6">
                 <input type="text" name="name" placeholder="Your name">
