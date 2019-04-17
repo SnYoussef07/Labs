@@ -1,43 +1,31 @@
+<?php
+$args = [
+    'post_type' => 'project',
+    'orderby' => 'date',
+    'order' => 'ASC',
+    'posts_per_page' => 3,
+];
+$query = new WP_Query($args);
+?>
 <!-- services card section-->
 <div class="services-card-section spad">
     <div class="container">
       <div class="row">
-        <!-- Single Card -->
-        <div class="col-md-4 col-sm-6">
-          <div class="sv-card">
-            <div class="card-img">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/card-1.jpg" alt="">
-            </div>
-            <div class="card-text">
-              <h2>Get in the lab</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-            </div>
-          </div>
-        </div>
-        <!-- Single Card -->
-        <div class="col-md-4 col-sm-6">
-          <div class="sv-card">
-            <div class="card-img">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/card-2.jpg" alt="">
-            </div>
-            <div class="card-text">
-              <h2>Projects online</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-            </div>
-          </div>
-        </div>
-        <!-- Single Card -->
-        <div class="col-md-4 col-sm-12">
-          <div class="sv-card">
-            <div class="card-img">
-              <img src="<?php echo get_template_directory_uri(); ?>/img/card-3.jpg" alt="">
-            </div>
-            <div class="card-text">
-              <h2>SMART MARKETING</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-            </div>
-          </div>
-        </div>
+
+      <?php while ($query->have_posts()): $query->the_post();?>
+		        <!-- Single Card -->
+		        <div class="col-md-4 col-sm-6">
+		          <div class="sv-card">
+		            <div class="card-img">
+		              <img src="<?php the_post_thumbnail_url();?>" alt="">
+		            </div>
+		            <div class="card-text">
+		              <h2><?=the_title();?></h2>
+		              <p><?=the_content();?></p>
+		            </div>
+		          </div>
+		        </div>
+			  <?php endwhile;?>
       </div>
     </div>
   </div>
