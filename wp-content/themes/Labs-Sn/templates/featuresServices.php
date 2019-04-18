@@ -12,23 +12,23 @@ $query2 = new WP_Query($args);
     <div class="overlay"></div>
     <div class="container">
       <div class="section-title">
-        <h2>Get in <span>the Lab</span> and discover the world</h2>
+        <h2><?=hookToSpan(get_theme_mod('title_project'));?></h2>
       </div>
       <div class="row">
         <!-- feature item -->
         <div class="col-md-4 col-sm-4 features">
         <?php while ($query1->have_posts()): $query1->the_post();
     $icone = get_post_meta(get_the_ID(), "project_icone_choic", true);?>
-							<div class="icon-box light left">
-		            <div class="service-text">
-		              <h2><?=the_title();?></h2>
-		              <p><?=the_content();?></p>
-		            </div>
-		            <div class="icon">
-		              <i class="<?=$icone?>"></i>
-		            </div>
-		          </div>
-	      <?php
+								<div class="icon-box light left">
+			            <div class="service-text">
+			              <h2><?=the_title();?></h2>
+			              <p><?=the_content();?></p>
+			            </div>
+			            <div class="icon">
+			              <i class="<?=$icone?>"></i>
+			            </div>
+			          </div>
+		      <?php
 endwhile;
 wp_reset_postdata();
 ?>
@@ -43,17 +43,17 @@ wp_reset_postdata();
         <div class="col-md-4 col-sm-4 features">
         <?php while ($query2->have_posts()): $query2->the_post();
     $icone = get_post_meta(get_the_ID(), "project_icone_choic", true);?>
-							 <!-- feature item -->
-	             <div class="icon-box light">
-	            <div class="icon">
-	              <i class="<?=$icone?>"></i>
-	            </div>
-	            <div class="service-text">
-	              <h2><?=the_title();?></h2>
-	              <p><?=the_content();?></p>
-	            </div>
-	          </div>
-	      <?php
+								 <!-- feature item -->
+		             <div class="icon-box light">
+		            <div class="icon">
+		              <i class="<?=$icone?>"></i>
+		            </div>
+		            <div class="service-text">
+		              <h2><?=the_title();?></h2>
+		              <p><?=the_content();?></p>
+		            </div>
+		          </div>
+		      <?php
 endwhile;
 wp_reset_postdata();
 ?>

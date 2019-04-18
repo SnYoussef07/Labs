@@ -33,11 +33,8 @@ class Newsletter
      */
     public static function render()
     {
-        /* $action = isset($_GET["action"]) ? $_GET["action"] : "index";
-        call_user_func([MailController::class, $action]); */
         $mails = array_reverse(Mail::all());
         view('pages/newsletter-list' , compact('mails'));
-        //echo "Hello";
     }
 
 }

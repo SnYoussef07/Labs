@@ -57,6 +57,11 @@ class MgCustomizer
             'title' => 'Section Contact',
         ]);
 
+        $wp_customize->add_section('section-project', [
+            'panel' => 'coding-panel-Section',
+            'title' => 'Section Project',
+        ]);
+
         /* ** TITRE ET TEXT DE ABOUT ** */
 
         /* Titre de section about */
@@ -277,6 +282,15 @@ class MgCustomizer
             'label' => 'gsm de contact',
             'section' => 'section-contact',
             'settings' => 'contact_gsm']);
+        /* SECTION PROJECT (SERVICES) */
+        $wp_customize->add_setting('title_project', [
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_textarea_field',
+        ]);
+        $wp_customize->add_control('project_control_title', [
+            'label' => 'Titre des projets',
+            'section' => 'section-project',
+            'settings' => 'title_project']);
 
     }
 

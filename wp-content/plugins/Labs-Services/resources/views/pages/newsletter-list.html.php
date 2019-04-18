@@ -10,7 +10,7 @@
 <body>
    <div>
    <?php foreach ($mails as $mail): ?>
-            <div class="postbox">
+            <div class="postbox mt-3">
                 <div class="inside">
                     <strong>client : </strong><?=$mail->email;?>
                     <form action="<?=get_admin_url() . '/?action=delete-news';?>" method="post">
