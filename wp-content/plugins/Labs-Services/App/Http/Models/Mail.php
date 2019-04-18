@@ -5,13 +5,9 @@ class Mail
 {
     // les propriétés de l'objet model. Les propriété de l'objet qui sont représentative de la structure de la table dans la base de donnée.
     public $id;
-    public $userid;
-    public $lname;
-    public $lsubject;
     public $email;
-    public $content;
     public $created_at;
-    protected static $table = 'wp_sn_mail';
+    protected static $table = 'wp_sn_newsletter';
     /**
      * Fonction qui est appelé lors de l'instance d'un objet.
      */
@@ -30,15 +26,11 @@ class Mail
         global $wpdb;
         // nous utilisons à nous la méthode insert de l'objet $wpdb;
         return $wpdb->insert(
-            $wpdb->prefix . 'sn_mail', // le nom de la table
+            $wpdb->prefix . 'sn_newsletter', // le nom de la table
             // ici nous affichons toutes les colonnes avec leur valeur sous forme d'objet.
             [
                 'id' => $this->id,
-                'userid' => $this->userid,
-                'lname' => $this->lname,
-                'lsubject' => $this->lsubject,
                 'email' => $this->email,
-                'content' => $this->content,
                 'created_at' => $this->created_at,
             ]
         );

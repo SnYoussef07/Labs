@@ -1,7 +1,7 @@
 <?php
 namespace App\Database;
 
-use App\Database\Migrations\CreateMailTable;
+use App\Database\Migrations\CreateNewsletterTable;
 
 class Database
 {

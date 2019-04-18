@@ -2,6 +2,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Request;
+use App\Http\Models\Mail;
+
 
 class MailController
 {
@@ -40,6 +42,20 @@ class MailController
             ];
         }
         // la fonction wp_safe_redirect redirige vers une url. La fonction wp_get_referer renvoi vers la page d'ou la requête a été envoyé.
+        wp_safe_redirect(wp_get_referer());
+    }
+
+    public static function saveNewsletter()
+    {
+        Request::validation([
+            'emailNews' => 'email',
+        ]);
+
+        $mail = new Mail();
+        $mail->email = $_POST['emailNews'];
+        // Sauvegarde du mail dans la base de donnée
+        $mail->save();
+
         wp_safe_redirect(wp_get_referer());
     }
 

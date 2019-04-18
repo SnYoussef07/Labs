@@ -19,7 +19,6 @@ $query = new WP_Query($args);
       <?php while ($query->have_posts()): $query->the_post();?>
 							      <?php
     $icone = get_post_meta(get_the_ID(), "service_icone_choic", true);
-
     ?>
 										      <div class="col-md-4 col-sm-6">
 												    <div class="service">

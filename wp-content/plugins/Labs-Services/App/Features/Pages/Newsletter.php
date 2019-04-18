@@ -2,6 +2,8 @@
 namespace App\Features\Pages;
 
 use App\Http\Controllers\MailController;
+use App\Http\Models\Mail;
+
 
 class Newsletter
 {
@@ -33,7 +35,8 @@ class Newsletter
     {
         /* $action = isset($_GET["action"]) ? $_GET["action"] : "index";
         call_user_func([MailController::class, $action]); */
-        view('pages/newsletter-list');
+        $mails = array_reverse(Mail::all());
+        view('pages/newsletter-list' , compact('mails'));
         //echo "Hello";
     }
 
