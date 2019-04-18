@@ -24,16 +24,23 @@ $query = new WP_Query($args);
 							<div class="post-content">
 								<h2 class="post-title"><?=the_title();?></h2>
 								<div class="post-meta">
-									<a href="">Loredana Papp</a>
-									<a href="">Design, Inspiration</a>
-									<a href="">2 Comments</a>
+                                    <a href=""><?= the_author() ?></a>
+							        <a href="">
+                                    <?php
+                                        $allTags = get_the_tags();
+                                        foreach($allTags as $tag){
+                                            echo $tag->name . ' ,';
+                                        }
+                                    ?>	
+                                    </a>
+                                    <a href=""><?= get_comments_number() ?> Comments</a>
 								</div>
 								<p><?=the_content();?></p>
 								<a href="<?= the_permalink(get_the_ID())?>" class="read-more">Read More</a>
 							</div>
 	                    </div>
 			        <?php endwhile;?>
-					<!-- Pagination -->
+                    <!-- Pagination -->
 					<div class="page-pagination">
 						<a class="active" href="">01.</a>
 						<a href="">02.</a>
