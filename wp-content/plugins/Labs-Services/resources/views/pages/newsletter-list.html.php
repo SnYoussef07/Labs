@@ -13,7 +13,11 @@
             <div class="postbox">
                 <div class="inside">
                     <strong>client : </strong><?=$mail->email;?>
-                    <a href="<?php menu_page_url('mail-client');?>&action=show&id=<?=$mail->id;?>" class="btn btn-primaty">voir</a>
+                    <form action="<?=get_admin_url() . '/?action=delete-news';?>" method="post">
+                        <input type="hidden" name="id" value="<?=$mail->id;?>">
+                        <input type="hidden" name="action" value="delete-news">
+                        <button type="submit" class="button">supprimer</button>
+                    </form>
                 </div>
             </div>
             <?php endforeach;?>

@@ -1,9 +1,8 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Request;
 use App\Http\Models\Mail;
-
+use App\Http\Requests\Request;
 
 class MailController
 {
@@ -72,7 +71,11 @@ class MailController
     // function qui est lancé via le hook admin_action_mail-delete ligne 23 du fichier hooks.php.
     public static function delete()
     {
+        // on récupère l'id envoyé via $_POST notre formulaire ligne 29 dans show-mail.html.php
+        $id = $_POST['id'];
+        Mail::delete($id);
 
+        wp_safe_redirect(wp_get_referer());
     }
 
 }

@@ -26,6 +26,8 @@ add_action('add_meta_boxes_testimonial', [TestimonialMetabox::class, 'add_meta_b
 
 add_action('admin_action_send-mail', [MailController::class, 'send']);
 add_action('admin_action_save-newsletter', [MailController::class, 'saveNewsletter']);
+add_action('admin_action_delete-news', [MailController::class, 'delete']);
+
 
 
 add_action('save_post_' . ServicePostType::$slug, [ServiceIconeMetabox::class, 'save']);
