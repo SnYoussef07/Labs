@@ -28,10 +28,7 @@ add_action('admin_action_send-mail', [MailController::class, 'send']);
 add_action('admin_action_save-newsletter', [MailController::class, 'saveNewsletter']);
 add_action('admin_action_delete-news', [MailController::class, 'delete']);
 
-
-
 add_action('save_post_' . ServicePostType::$slug, [ServiceIconeMetabox::class, 'save']);
 add_action('save_post_' . ProjectPostType::$slug, [ProjectMetabox::class, 'save']);
-
 
 register_activation_hook(__DIR__ . '/LabServices.php', [Database::class, 'init']);
