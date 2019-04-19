@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Models\Mail;
+use App\Http\Models\Newsletter;
 use App\Http\Requests\Request;
 
 class MailController
@@ -26,7 +27,15 @@ class MailController
         $subject = $_POST['subject'];
         $message = $_POST['message'];
         $emailAdmin = "Admin@Admin.be";
-        // la fonction wordpress pour envoyer des mails https://developer.wordpress.org/reference/functions/wp_mail/
+
+        $mail = new Mail();
+        $mail->userid = get_current_user_id();
+        $mail->lastname = $name;
+        $mail->email = $email;
+        $mail->lsubject = $subject;
+        $mail->content = $message;
+        // Sauvegarde du mail dans la base de donnée
+        $mail->save();
 
         // Si le mail est bien envoyé status = 'success' sinon 'error'
         if (wp_mail($emailAdmin, 'Par ' . $name . ' Sujet : [' . $subject . '] ' . 'email :' . $email, $message)) {
@@ -53,8 +62,8 @@ class MailController
         $emailAdmin = "Admin@Admin.be";
         $message = "Email :" . $_POST['emailNews'] . "est inscrit a la newsletter";
 
-        $mail = new Mail();
-        $mail->email = $_POST['emailNews'];
+        $mail = new Newsletter();
+        $mail->email = $_POST['emaiemail,lNews'];
         // Sauvegarde du mail dans la base de donnée
         $mail->save();
 
@@ -77,7 +86,7 @@ class MailController
     {
         // on récupère l'id envoyé via $_POST notre formulaire ligne 29 dans show-mail.html.php
         $id = $_POST['id'];
-        Mail::delete($id);
+        Newsletter::delete($id);
 
         wp_safe_redirect(wp_get_referer());
     }

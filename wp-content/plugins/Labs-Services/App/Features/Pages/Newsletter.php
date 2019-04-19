@@ -2,7 +2,7 @@
 namespace App\Features\Pages;
 
 use App\Http\Controllers\MailController;
-use App\Http\Models\Mail;
+use App\Http\Models\Newsletter as myNewsletter;
 
 
 class Newsletter
@@ -33,7 +33,7 @@ class Newsletter
      */
     public static function render()
     {
-        $mails = array_reverse(Mail::all());
+        $mails = array_reverse(myNewsletter::all());
         view('pages/newsletter-list' , compact('mails'));
     }
 
