@@ -50,10 +50,15 @@ class MailController
             'emailNews' => 'email',
         ]);
 
+        $emailAdmin = "Admin@Admin.be";
+        $message = "Email :" . $_POST['emailNews'] . "est inscrit a la newsletter";
+
         $mail = new Mail();
         $mail->email = $_POST['emailNews'];
         // Sauvegarde du mail dans la base de donnée
         $mail->save();
+
+        wp_mail($emailAdmin, 'Inscription a la newsLetter', $message);
 
         wp_safe_redirect(wp_get_referer());
     }
