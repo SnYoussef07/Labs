@@ -58,14 +58,8 @@ class Mail
     {
         global $wpdb;
         $table = self::$table;
-        $query = "SELECT *
-        protected static $table = ' FROM $table WHERE id = $id";
 
-        $objet = $wpdb->get_row($query);
-        $mail = new Mail();
-        foreach ($objet as $key => $value) {
-            $mail->$key = $value;
-        }
-        return $mail;
+        $query = "SELECT * FROM $table WHERE id = $id";
+        return $wpdb->get_row($query);
     }
 }

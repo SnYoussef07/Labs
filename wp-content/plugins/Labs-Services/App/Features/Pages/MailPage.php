@@ -31,8 +31,14 @@ class MailPage
      */
     public static function render()
     {
-        $mails = array_reverse(Mail::all());
-        view('pages/mail-list', compact('mails'));
+        if ($_GET['action'] == 'show') {
+            $id = $_GET['id'];
+            $mail = Mail::find($id);
+            view('pages/show-mail', compact('mail'));
+        } else {
+            $mails = array_reverse(Mail::all());
+            view('pages/mail-list', compact('mails'));
+        }
     }
 
 }
