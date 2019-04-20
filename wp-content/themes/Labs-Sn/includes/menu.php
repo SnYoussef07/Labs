@@ -13,24 +13,14 @@ class MgMenu
         register_nav_menu('main-menu', 'Menu principal');
     }
 
-    /**
-     * Fonction qui ajoute des attributes au balise a des nav_menu
-     *
-     * @param [type] $atts
-     * @param [type] $item
-     * @param [type] $args
-     * @return void
-     */
-    public static function ajout_menu_a_class($atts, $item, $args)
+    public static function special_nav_class($classes, $item)
     {
-        // On ajoute un condition pour pouvoir choisir les class que l'on ajoute en fonction du menu
-        $class = ''; // or something based on $item
-
-        $atts['class'] = $class;
-        return $atts;
-
+        if (in_array('current-menu-item', $classes)) {
+            $classes[] = 'active ';
+        }
+        return $classes;
     }
 }
 
 add_action('after_setup_theme', [MgMenu::class, 'register_main_menu']);
-add_filter('nav_menu_css_class', [MgMenu::class, 'ajout_menu_a_class'], 10, 3);
+add_filter('nav_menu_css_class', [MgMenu::class, 'special_nav_class'], 10, 2);
