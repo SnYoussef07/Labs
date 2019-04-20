@@ -31,4 +31,6 @@ add_action('admin_action_delete-news', [MailController::class, 'delete']);
 add_action('save_post_' . ServicePostType::$slug, [ServiceIconeMetabox::class, 'save']);
 add_action('save_post_' . ProjectPostType::$slug, [ProjectMetabox::class, 'save']);
 
+add_action('admin_enqueue_scripts', [Setup::class, 'enqueue_scripts']); 
+
 register_activation_hook(__DIR__ . '/LabServices.php', [Database::class, 'init']);

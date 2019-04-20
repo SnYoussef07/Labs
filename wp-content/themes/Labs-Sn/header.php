@@ -27,7 +27,7 @@ wp_head();
     </div>
   </div>
 
-
+<h1 id="hi"></h1>
   <!-- Header section -->
   <header class="header-section">
     <div class="logo">

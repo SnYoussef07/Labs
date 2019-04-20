@@ -1,23 +1,30 @@
-<table class="form-table">
-  <tr>
-    <th><?php _e("Choix de l'icone");?></th>
-    <td>
-      <select name="project_icone_choic" id="service_icone_choic">
-        <option value="">Selectionner votre icone</option>
-        <option value="flaticon-001-picture">picture</option>
-        <option value="flaticon-002-caliper">caliper</option>
-        <option value="flaticon-003-energy-drink">drink</option>
-        <option value="flaticon-004-build">build</option>
-        <option value="flaticon-005-thinking-1">thinking-1</option>
-        <option value="flaticon-006-prism">prism</option>
-        <option value="flaticon-007-paint">paint</option>
-        <option value="flaticon-008-team">team</option>
-        <option value="flaticon-008-idea-3">idea-3</option>
-      </select>
-    </td>
-  </tr>
-</table>
+<h1><?php _e("Choix de l'icone");?></h1>
 
 
+
+<div class="container mb-5">
+  <div class="row">
+    <div id="hi" class="col-lg-2 icon"><i class="flaticon-001-picture allIconsB"></i></div>
+    <div class="col-lg-2 icon"><i class="flaticon-002-caliper allIconsB"></i></div>
+    <div class="col-lg-2 icon"><i class="flaticon-003-energy-drink allIconsB"></i></div>
+    <div class="col-lg-2 icon"><i class="flaticon-004-build allIconsB"></i></div>
+
+    <div class="col-lg-2 icon"><i class="flaticon-005-thinking-1 allIconsB"></i></div>
+    <div class="col-lg-2 icon"><i class="flaticon-006-prism allIconsB"></i></div>
+    <div class="col-lg-2 icon"><i class="flaticon-007-paint allIconsB"></i></div>
+    <div class="col-lg-2 icon"><i class="flaticon-043-sketch allIconsB"></i></div>
+
+    <div class="col-lg-2 icon"><i class="flaticon-009-idea-3 allIconsB"></i></div>
+    <div class="col-lg-2 icon"><i class="flaticon-010-diamond allIconsB"></i></div>
+    <div class="col-lg-2 icon"><i class="flaticon-011-compass allIconsB"></i></div>
+    <div class="col-lg-2 icon"><i class="flaticon-012-cube allIconsB"></i></div>
+  </div>
+</div>
+
+
+<input type="hidden" id="icone-choicB" name="project_icone_choic" value="">
+
+
+<script src="<?=RAT_PLUGIN_URL . '/resources/assets/js/jsProject.js'?>"></script>
 
 

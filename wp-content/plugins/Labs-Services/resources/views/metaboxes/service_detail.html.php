@@ -1,23 +1,27 @@
-<table class="form-table">
-  <tr>
-    <th><?php _e("Choix de l'icone");?></th>
-    <td>
-      <select name="service_icone_choic" id="service_icone_choic">
-        <option value="">Selectionner votre icone</option>
-        <option value="flaticon-001-picture">picture</option>
-        <option value="flaticon-002-caliper">caliper</option>
-        <option value="flaticon-003-energy-drink">drink</option>
-        <option value="flaticon-004-build">build</option>
-        <option value="flaticon-005-thinking-1">thinking-1</option>
-        <option value="flaticon-006-prism">prism</option>
-        <option value="flaticon-007-paint">paint</option>
-        <option value="flaticon-008-team">team</option>
-        <option value="flaticon-008-idea-3">idea-3</option>
-      </select>
-    </td>
-  </tr>
-</table>
+<h1><?php _e("Choix de l'icone");?></h1>
 
 
+<div class="container mb-5">
+  <div class="row">
+    <div id="hi" class="col-lg-2 icon"><i class="flaticon-001-picture allIcons"></i></div>
+    <div class="col-lg-2 icon"><i class="flaticon-002-caliper allIcons"></i></div>
+    <div class="col-lg-2 icon"><i class="flaticon-003-energy-drink allIcons"></i></div>
+    <div class="col-lg-2 icon"><i class="flaticon-004-build allIcons"></i></div>
+
+    <div class="col-lg-2 icon"><i class="flaticon-005-thinking-1 allIcons"></i></div>
+    <div class="col-lg-2 icon"><i class="flaticon-006-prism allIcons"></i></div>
+    <div class="col-lg-2 icon"><i class="flaticon-007-paint allIcons"></i></div>
+    <div class="col-lg-2 icon"><i class="flaticon-043-sketch allIcons"></i></div>
+
+    <div class="col-lg-2 icon"><i class="flaticon-009-idea-3 allIcons"></i></div>
+    <div class="col-lg-2 icon"><i class="flaticon-010-diamond allIcons"></i></div>
+    <div class="col-lg-2 icon"><i class="flaticon-011-compass allIcons"></i></div>
+    <div class="col-lg-2 icon"><i class="flaticon-012-cube allIcons"></i></div>
+  </div>
+</div>
+
+  
+<input type="hidden" id="icone-choic" name="service_icone_choic" value="">
 
 
+<script src="<?= RAT_PLUGIN_URL . '/resources/assets/js/jsService.js' ?>"></script> 

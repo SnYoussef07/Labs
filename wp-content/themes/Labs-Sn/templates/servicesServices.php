@@ -3,7 +3,6 @@ $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 $args = [
     'post_type' => 'service',
     'posts_per_page' => 6,
-    'orderby' => 'rand',
     'paged'          => $paged
 ];
 $query = new WP_Query($args);
