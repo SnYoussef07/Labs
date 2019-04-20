@@ -1,7 +1,9 @@
 <?php
+$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 $args = [
     'post_type' => 'post',
-    'posts_per_page' => 3,
+	'posts_per_page' => 3,
+	'paged'          => $paged
 ];
 $query = new WP_Query($args);
 ?>
@@ -42,11 +44,14 @@ $query = new WP_Query($args);
 			                    </div>
 					        <?php endwhile;?>
                     <!-- Pagination -->
-					<div class="page-pagination">
-						<a class="active" href="">01.</a>
-						<a href="">02.</a>
-						<a href="">03.</a>
+					<div class="myRow"> 
+						<div><?php previous_posts_link('<button type="button" class="btn bgColor btn-arrow-left">Prev</button>');?></div>
+						<div><?php next_posts_link( ' <button type="button" class="btn bgColor btn-arrow-right">
+						Next
+						</button>', $query->max_num_pages );?>
+						</div>
 					</div>
+
                 </div>
 
                 <!-- SUITS -->
