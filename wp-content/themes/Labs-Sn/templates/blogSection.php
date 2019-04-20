@@ -26,12 +26,13 @@ $query = new WP_Query($args);
 										<div class="post-meta">
 		                                    <a href=""><?=the_author()?></a>
 									        <a href="">
-		                                    <?php
-    $allTags = get_the_tags();
-    foreach ($allTags as $tag) {
-        echo $tag->name . ' ,';
-    }
-    ?>
+											<!-- ici la boucle-->
+											<?php
+												$allTags = get_the_tags();
+												foreach($allTags as $tag){
+													echo $tag->name . ' ,';
+												}
+                                    		?>	
 		                                    </a>
 		                                    <a href=""><?=get_comments_number()?> Comments</a>
 										</div>

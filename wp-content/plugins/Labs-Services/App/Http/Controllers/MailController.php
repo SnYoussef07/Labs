@@ -38,7 +38,7 @@ class MailController
         $mail->save();
 
         // Si le mail est bien envoyé status = 'success' sinon 'error'
-        if (wp_mail($emailAdmin, 'Par ' . $name . ' Sujet : [' . $subject . '] ' . 'email :' . $email, $message)) {
+        /* if (wp_mail($emailAdmin, 'Par ' . $name . ' Sujet : [' . $subject . '] ' . 'email :' . $email, $message)) {
             $_SESSION['notice'] = [
                 'status' => 'success',
                 'message' => 'votre e-mail a bien été envoyé',
@@ -48,7 +48,7 @@ class MailController
                 'status' => 'error',
                 'message' => 'Une erreur est survenue, veuillez réessayer plus tard',
             ];
-        }
+        } */
         // la fonction wp_safe_redirect redirige vers une url. La fonction wp_get_referer renvoi vers la page d'ou la requête a été envoyé.
         wp_safe_redirect(wp_get_referer());
     }
@@ -63,11 +63,11 @@ class MailController
         $message = "Email :" . $_POST['emailNews'] . "est inscrit a la newsletter";
 
         $mail = new Newsletter();
-        $mail->email = $_POST['emaiemail,lNews'];
+        $mail->email = $_POST['emailNews'];
         // Sauvegarde du mail dans la base de donnée
         $mail->save();
 
-        wp_mail($emailAdmin, 'Inscription a la newsLetter', $message);
+        //wp_mail($emailAdmin, 'Inscription a la newsLetter', $message);
 
         wp_safe_redirect(wp_get_referer());
     }
