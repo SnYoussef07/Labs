@@ -59,7 +59,7 @@ class MailController
             'emailNews' => 'email',
         ]);
 
-        $emailAdmin = "Admin@Admin.be";
+        $emailAdmin = "Test@tt.be";
         $message = "Email :" . $_POST['emailNews'] . "est inscrit a la newsletter";
 
         $mail = new Newsletter();
@@ -68,7 +68,7 @@ class MailController
         $mail->save();
 
         //wp_mail($emailAdmin, 'Inscription a la newsLetter', $message);
-
+            
         wp_safe_redirect(wp_get_referer());
     }
 

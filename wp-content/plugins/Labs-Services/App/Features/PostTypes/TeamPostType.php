@@ -40,6 +40,15 @@ class TeamPostType
                 'rewrite' => [
                     'slug' => 'team',
                 ],
+                'capabilities' => array(
+                    'edit_post' => 'edit_team',
+                    'edit_posts' => 'edit_teams',
+                    'edit_others_posts' => 'edit_other_teams',
+                    'publish_posts' => 'publish_teams',
+                    'read_post' => 'read_team',
+                    'read_private_posts' => 'read_private_teams',
+                    'delete_post' => 'delete_team',
+                ),
                 'taxonomies' => ['category'],
                 'menu_icon' => 'dashicons-groups',
                 'supports' => ['title', 'editor', 'thumbnail'],

@@ -40,6 +40,15 @@ class ProjectPostType
                 'rewrite' => [
                     'slug' => 'project',
                 ],
+                'capabilities' => array(
+                    'edit_post' => 'edit_project',
+                    'edit_posts' => 'edit_projects',
+                    'edit_others_posts' => 'edit_other_projects',
+                    'publish_posts' => 'publish_projects',
+                    'read_post' => 'read_project',
+                    'read_private_posts' => 'read_private_projects',
+                    'delete_post' => 'delete_project',
+                ),
                 'menu_icon' => 'dashicons-clipboard',
                 'supports' => ['title', 'editor', 'thumbnail'],
             ]

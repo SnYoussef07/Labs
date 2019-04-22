@@ -39,6 +39,17 @@ class ServicePostType
                 'rewrite' => [
                     'slug' => 'service',
                 ],
+
+                'capabilities' => array(
+                    'edit_post' => 'edit_service',
+                    'edit_posts' => 'edit_services',
+                    'edit_others_posts' => 'edit_other_services',
+                    'publish_posts' => 'publish_services',
+                    'read_post' => 'read_service',
+                    'read_private_posts' => 'read_private_services',
+                    'delete_post' => 'delete_service',
+                ),
+
                 'taxonomies' => ['category'],
                 'menu_icon' => 'dashicons-analytics',
                 'supports' => ['title', 'editor', 'thumbnail'],

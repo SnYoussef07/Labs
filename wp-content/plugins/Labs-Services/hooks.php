@@ -10,6 +10,7 @@ use App\Features\PostTypes\ServicePostType;
 use App\Features\PostTypes\TeamPostType;
 use App\Features\PostTypes\TestimonialPostType;
 use App\Http\Controllers\MailController;
+use App\Features\Roles\Role;
 use App\Setup;
 
 add_action('init', [ServicePostType::class, 'register']);
@@ -34,3 +35,4 @@ add_action('save_post_' . ProjectPostType::$slug, [ProjectMetabox::class, 'save'
 add_action('admin_enqueue_scripts', [Setup::class, 'enqueue_scripts']); 
 
 register_activation_hook(__DIR__ . '/LabServices.php', [Database::class, 'init']);
+register_activation_hook(__DIR__ . '/LabServices.php', [Role::class, 'init']);
