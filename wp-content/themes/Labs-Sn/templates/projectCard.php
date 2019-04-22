@@ -8,7 +8,7 @@ $args = [
 $query = new WP_Query($args);
 ?>
 <!-- services card section-->
-<div class="services-card-section spad">
+<div class="services-card-section spad" id="featuresCard">
     <div class="container">
       <div class="row">
 

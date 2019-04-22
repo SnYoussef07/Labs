@@ -54,7 +54,7 @@ wp_reset_postdata();
           </div>
         </div>
         <div class="text-center mt60">
-          <a href="" class="site-btn">Browse</a>
+          <a href="/?page_id=<?= get_page_by_title('blog')->ID ?>" class="site-btn">Blogs</a>
         </div>
         <!-- popup video -->
         <div class="intro-video">

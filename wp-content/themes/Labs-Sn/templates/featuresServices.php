@@ -60,7 +60,7 @@ wp_reset_postdata();
         </div>
       </div>
       <div class="text-center mt100">
-        <a href="" class="site-btn">Browse</a>
+        <a href="#featuresCard" class="site-btn">Browse</a>
       </div>
     </div>
   </div>

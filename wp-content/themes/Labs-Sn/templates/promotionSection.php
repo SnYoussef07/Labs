@@ -8,7 +8,7 @@
         </div>
         <div class="col-md-3">
           <div class="promo-btn-area">
-            <a href="" class="site-btn btn-2">Browse</a>
+            <a href="/?page_id=<?=get_page_by_title('contact')->ID?>" class="site-btn btn-2">Contact</a>
           </div>
         </div>
       </div>

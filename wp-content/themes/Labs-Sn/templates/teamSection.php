@@ -11,7 +11,6 @@ $query1 = new WP_Query($args1);
 $args2 = [
   'post_type' => 'team',
   'posts_per_page' => 1,
-  'orderby' => 'rand',
   'category_name' => 'Dev'
 ];
 $query2 = new WP_Query($args2);
