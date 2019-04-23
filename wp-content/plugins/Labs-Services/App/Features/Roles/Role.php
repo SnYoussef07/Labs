@@ -29,7 +29,6 @@ class Role
         self::add_cap_for_postType('project');
         self::add_cap_for_postType('team');
         self::add_cap_for_postType('testimonial');
-
     }
 
     public static function add_cap_for_postType($slug_postType)

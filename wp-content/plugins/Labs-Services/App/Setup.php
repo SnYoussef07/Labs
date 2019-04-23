@@ -23,8 +23,5 @@ class Setup
         wp_enqueue_style('flaticon', RAT_PLUGIN_URL . '/resources/assets/css/flaticon.css');
         wp_enqueue_style('bootstrap', RAT_PLUGIN_URL . '/resources/assets/css/bootstrap.min.css');
         wp_enqueue_style('bootstrap-grid', RAT_PLUGIN_URL . '/resources/assets/css/bootstrap-grid.css');
-
-        //wp_enqueue_script('main-plug', RAT_PLUGIN_URL . '/resources/assets/js/mainPlug.js',null, true);
-
     }
 }
