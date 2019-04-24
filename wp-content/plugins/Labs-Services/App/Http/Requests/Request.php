@@ -19,7 +19,7 @@ class Request
             }
             // On rempli notre $_SESSION avec toutes nos erreurs réecrite pour que l'affichage soit mieux présenté
             $_SESSION['notice'] = [
-                'status' => 'error',
+                'status' => 'danger',
                 'message' => $message,
             ];
             // on retourne sur notre page
