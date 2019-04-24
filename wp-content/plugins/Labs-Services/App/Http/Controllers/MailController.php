@@ -9,6 +9,9 @@ class MailController
 {
     public static function send()
     {
+        if (!wp_verify_nonce($_POST['_wpnonce'], 'send-mail')) {
+            return;
+        };
         // Maintenant à chaque fois qu'il y a une tenative réussie ou ratée d'envoi de mail, on lance la methode 'validation' de la class Request et on rempli son paramètre avec un tableau de clef et de valeur. On fait en sorte que le nom des clefs correspondent aux names des inputs du formulaire.
         Request::validation([
             'name' => 'required',
@@ -18,10 +21,10 @@ class MailController
         ]);
 
         // Nous récupérons les données envoyé par le formulaire qui se retrouve dans la variable $_POST
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $subject = $_POST['subject'];
-        $message = $_POST['message'];
+        $name = sanitize_text_field($_POST['name']);
+        $email = sanitize_email($_POST['email']);
+        $subject = sanitize_text_field($_POST['subject']);
+        $message = sanitize_textarea_field($_POST['message']);
         $emailAdmin = "Admin@Admin.be";
 
         $mail = new Mail();
@@ -35,15 +38,15 @@ class MailController
 
         // Si le mail est bien envoyé status = 'success' sinon 'error'
         if (wp_mail($emailAdmin, 'Par ' . $name . ' Sujet : [' . $subject . '] ' . 'email :' . $email, $message)) {
-        $_SESSION['notice'] = [
-        'status' => 'success',
-        'message' => 'votre e-mail a bien été envoyé',
-        ];
+            $_SESSION['notice'] = [
+                'status' => 'success',
+                'message' => 'votre e-mail a bien été envoyé',
+            ];
         } else {
-        $_SESSION['notice'] = [
-        'status' => 'danger',
-        'message' => 'Une erreur est survenue, veuillez réessayer plus tard',
-        ];
+            $_SESSION['notice'] = [
+                'status' => 'danger',
+                'message' => 'Une erreur est survenue, veuillez réessayer plus tard',
+            ];
         }
         // la fonction wp_safe_redirect redirige vers une url. La fonction wp_get_referer renvoi vers la page d'ou la requête a été envoyé.
         wp_safe_redirect(wp_get_referer());
@@ -51,15 +54,20 @@ class MailController
 
     public static function saveNewsletter()
     {
+
+        if (!wp_verify_nonce($_POST['_wpnonce'], 'send-mail')) {
+            return;
+        };
+        
         Request::validation([
             'emailNews' => 'email',
         ]);
 
         $emailAdmin = "Test@tt.be";
-        $message = "Email :" . $_POST['emailNews'] . "est inscrit a la newsletter";
+        $message = "Email :" . sanitize_email($_POST['emailNews']) . "est inscrit a la newsletter";
 
         $mail = new Newsletter();
-        $mail->email = $_POST['emailNews'];
+        $mail->email = sanitize_email($_POST['emailNews']);
         // Sauvegarde du mail dans la base de donnée
         $mail->save();
 

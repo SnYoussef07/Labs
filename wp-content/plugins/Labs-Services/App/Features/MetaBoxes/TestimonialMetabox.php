@@ -37,7 +37,7 @@ class TestimonialMetabox
     {
         if (count($_POST) != 0) {
             // On stock dans une variable la valeur de l'input dont le name est 'rat_time_preparation'
-            $metier_testi = $_POST['metier'];
+            $metier_testi = sanitize_text_field($_POST['metier']);
             // https://developer.wordpress.org/reference/functions/update_post_meta/
             update_post_meta($post_id, 'metier', $metier_testi);
         }

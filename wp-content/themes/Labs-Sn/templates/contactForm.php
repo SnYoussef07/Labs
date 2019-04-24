@@ -22,7 +22,8 @@
           <?php include plugin_dir_path(__FILE__) . "../includes/notice.php";?>
 
           <form class="form-class" id="con_form" action="<?=get_admin_url() . '/?action=send-mail';?>" method="post">
-            <div class="row">
+          <?php wp_nonce_field('send-mail');?>
+          <div class="row">
               <div class="col-sm-6">
                 <input type="text" name="name" placeholder="Your name">
               </div>

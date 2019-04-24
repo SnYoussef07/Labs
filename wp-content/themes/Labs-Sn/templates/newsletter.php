@@ -8,8 +8,9 @@
         </div>
         <div class="col-md-9">
           <!-- newsletter form -->
-          <form class="nl-form" action="<?= get_admin_url() . '/?action=save-newsletter';?>" method="post">
-            <input type="hidden" name="action" value="save-newsletter">
+          <form class="nl-form" action="<?=get_admin_url() . '/?action=save-newsletter';?>" method="post">
+          <?php wp_nonce_field('send-mail');?>
+          <input type="hidden" name="action" value="save-newsletter">
             <input type="text" name="emailNews" placeholder="Your e-mail here">
             <button class="site-btn btn-2">Newsletter</button>
           </form>

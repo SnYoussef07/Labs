@@ -36,7 +36,7 @@ class ServiceIconeMetabox
     {
         if (count($_POST) != 0) {
             // On stock dans une variable la valeur de l'input dont le name est 'rat_time_preparation'
-            $icone_serv = $_POST['service_icone_choic'];
+            $icone_serv = sanitize_text_field($_POST['service_icone_choic']);
             // https://developer.wordpress.org/reference/functions/update_post_meta/
             update_post_meta($post_id, 'service_icone_choic', $icone_serv);
         }

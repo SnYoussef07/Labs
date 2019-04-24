@@ -19,7 +19,8 @@ class CreateNewsletterTable
         $wpdb->query("CREATE TABLE IF NOT EXISTS  $table_name  (
       id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
       email VARCHAR(255) NOT NULL,
-      created_at TIMESTAMP
+      created_at TIMESTAMP,
+      UNIQUE (email)
     )
     COLLATE utf8mb4_unicode_520_ci
     ;");
