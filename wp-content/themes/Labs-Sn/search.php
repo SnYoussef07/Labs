@@ -6,7 +6,6 @@ get_template_part("templates/headerServices");
 ?>
 
 <div class="container">
-   
     <div class="blog-posts">
         <?php while (have_posts()): the_post();?>
 	        <!-- Post item -->

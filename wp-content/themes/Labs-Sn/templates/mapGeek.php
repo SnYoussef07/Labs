@@ -19,12 +19,6 @@
         width: 100% !important;
         height: 100% !important;
       }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
     </style>
   </head>
   <body>
@@ -35,3 +29,4 @@
 </div>
   </body>
 </html>
+
