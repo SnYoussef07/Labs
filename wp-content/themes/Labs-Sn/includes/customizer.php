@@ -62,6 +62,11 @@ class MgCustomizer
             'title' => 'Section Project',
         ]);
 
+        $wp_customize->add_section('section-map', [
+            'panel' => 'coding-panel-Section',
+            'title' => 'Section Map',
+        ]);
+
         /* ** TITRE ET TEXT DE ABOUT ** */
 
         /* Titre de section about */
@@ -291,6 +296,16 @@ class MgCustomizer
             'label' => 'Titre des projets',
             'section' => 'section-project',
             'settings' => 'title_project']);
+
+        /* MAP */
+        $wp_customize->add_setting('adresse_map', [
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'sanitize_textarea_field',
+        ]);
+        $wp_customize->add_control('adress_control_map', [
+            'label' => 'Adresse',
+            'section' => 'section-map',
+            'settings' => 'adresse_map']);
 
     }
 
