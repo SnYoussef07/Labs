@@ -16,11 +16,12 @@ class MgMenu
     public static function special_nav_class($classes, $item)
     {
         if (in_array('current-menu-item', $classes)) {
-            $classes[] = 'active ';
+            $classes[] = 'active';
         }
         return $classes;
     }
 }
 
 add_action('after_setup_theme', [MgMenu::class, 'register_main_menu']);
+
 add_filter('nav_menu_css_class', [MgMenu::class, 'special_nav_class'], 10, 2);

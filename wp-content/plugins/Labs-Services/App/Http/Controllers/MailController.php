@@ -58,8 +58,8 @@ class MailController
         if (!wp_verify_nonce($_POST['_wpnonce'], 'send-mail')) {
             return;
         };
-        
-        Request::validation([
+
+        Request::validationNews([
             'emailNews' => 'email',
         ]);
 
@@ -71,7 +71,17 @@ class MailController
         // Sauvegarde du mail dans la base de donnée
         $mail->save();
 
-        wp_mail($emailAdmin, 'Inscription a la newsLetter', $message);
+        if (wp_mail($emailAdmin, 'Inscription a la newsLetter', $message)) {
+            $_SESSION['notice-new'] = [
+                'status' => 'success',
+                'message' => 'votre Newsletter a bien été envoyé',
+            ];
+        } else {
+            $_SESSION['notice-new'] = [
+                'status' => 'danger',
+                'message' => 'Une erreur est survenue, veuillez réessayer plus tard',
+            ];
+        }
 
         wp_safe_redirect(wp_get_referer());
     }

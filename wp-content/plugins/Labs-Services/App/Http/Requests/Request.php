@@ -29,6 +29,28 @@ class Request
         }
     }
 
+    public static function validationNews(array $data)
+    {
+        foreach ($data as $input_name => $verification) {
+            // on lance la function de la class, 'email' ou 'required' selon ce que vaut $verification et on rempli le paramètre de la function avec $input_name
+            call_user_func([self::class, $verification], $input_name);
+        }
+        if (count(self::$errors) != 0) {
+            $message = "";
+            foreach (self::$errors as $key => $value) {
+                $message .= $value . '<br>';
+            }
+            $_SESSION['notice-new'] = [
+                'status' => 'danger',
+                'message' => $message,
+            ];
+            // on retourne sur notre page
+            wp_safe_redirect(wp_get_referer());
+            // Permet d'arreter le script tant qu'il y a des erreurs à partir de la ligne 44 de notre fichier SendMail.php
+            exit;
+        }
+    }
+
     public static function required(string $input_name)
     {
         if ($_POST[$input_name] == "") {
