@@ -69,9 +69,8 @@ class MailController
         $mail = new Newsletter();
         $mail->email = sanitize_email($_POST['emailNews']);
         // Sauvegarde du mail dans la base de donnée
-        $mail->save();
 
-        if (wp_mail($emailAdmin, 'Inscription a la newsLetter', $message)) {
+        if ( $mail->save() && wp_mail($emailAdmin, 'Inscription a la newsLetter', $message)) {
             $_SESSION['notice-new'] = [
                 'status' => 'success',
                 'message' => 'votre Newsletter a bien été envoyé',
