@@ -15,24 +15,21 @@
           <p></p>
         </div>
 
-
         <!-- contact form -->
         <div class="col-md-6 col-pull">
-
           <?php include plugin_dir_path(__FILE__) . "../includes/notice.php";?>
-
           <form class="form-class" id="con_form" action="<?=get_admin_url() . '/?action=send-mail';?>" method="post">
-          <?php wp_nonce_field('send-mail');?>
+          <?php wp_nonce_field('send-mail'); ?>
           <div class="row">
               <div class="col-sm-6">
-                <input type="text" name="name" placeholder="Your name">
+                <input type="text" name="name" placeholder="Your name" value="<?= isset($old['email']) ? $old['email'] : '' ?>">
               </div>
               <div class="col-sm-6">
-                <input type="text" name="email" placeholder="Your email">
+                <input type="text" name="email" placeholder="Your email" value="">
               </div>
               <div class="col-sm-12">
-                <input type="text" name="subject" placeholder="Subject">
-                <textarea name="message" placeholder="Message"></textarea>
+                <input type="text" name="subject" placeholder="Subject" value="<?= $subject ?>">
+                <textarea name="message" placeholder="Message" value="<?= $message ?>"></textarea>
                 <button class="site-btn">send</button>
               </div>
             </div>

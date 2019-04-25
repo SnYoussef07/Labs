@@ -9,6 +9,7 @@ class MailController
 {
     public static function send()
     {
+
         if (!wp_verify_nonce($_POST['_wpnonce'], 'send-mail')) {
             return;
         };
@@ -42,6 +43,7 @@ class MailController
                 'status' => 'success',
                 'message' => 'votre e-mail a bien été envoyé',
             ];
+            unset($_SESSION['formMail']);
         } else {
             $_SESSION['notice'] = [
                 'status' => 'danger',

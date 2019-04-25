@@ -16,6 +16,7 @@
             }else{
               $maValue = '';
             }
+
           ?>
           <?php wp_nonce_field('send-mail');?>
           <input type="hidden" name="action" value="save-newsletter">

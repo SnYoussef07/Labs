@@ -22,6 +22,9 @@ class Request
                 'status' => 'danger',
                 'message' => $message,
             ];
+            foreach ($data as $input_name => $validation) {
+                $_SESSION['old'][$input_name] = $_POST[$input_name];
+            }
             // on retourne sur notre page
             wp_safe_redirect(wp_get_referer());
             // Permet d'arreter le script tant qu'il y a des erreurs à partir de la ligne 44 de notre fichier SendMail.php
