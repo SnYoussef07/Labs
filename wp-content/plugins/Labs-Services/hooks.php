@@ -25,13 +25,14 @@ add_action('add_meta_boxes_service', [ServiceIconeMetabox::class, 'add_meta_box'
 add_action('add_meta_boxes_project', [ProjectMetabox::class, 'add_meta_box']);
 add_action('add_meta_boxes_testimonial', [TestimonialMetabox::class, 'add_meta_box']);
 
-//add_action('admin_action_send-mail', [MailController::class, 'send']);
 add_action('admin_post_send-mail', [MailController::class, 'send']);
 add_action('admin_post_nopriv_send-mail', [MailController::class, 'send']);
 
 
 
-add_action('admin_action_save-newsletter', [MailController::class, 'saveNewsletter']);
+add_action('admin_post_save-newsletter', [MailController::class, 'saveNewsletter']);
+add_action('admin_post_nopriv_save-newsletter', [MailController::class, 'saveNewsletter']);
+
 add_action('admin_action_delete-news', [MailController::class, 'delete']);
 
 add_action('save_post_' . ServicePostType::$slug, [ServiceIconeMetabox::class, 'save']);

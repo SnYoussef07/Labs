@@ -18,7 +18,8 @@
         <!-- contact form -->
         <div class="col-md-6 col-pull">
           <?php include plugin_dir_path(__FILE__) . "../includes/notice.php";?>
-          <form class="form-class" id="con_form" action="<?= admin_url('admin-post.php'); ?>" method="post">
+
+          <form class="form-class" id="con_form" action="<?= admin_url('admin-post.php')?>" method="post">
           <?php wp_nonce_field('send-mail'); ?>
           <input type="hidden" name="action" value="send-mail">
           <div class="row">

@@ -31,7 +31,6 @@ class MailPage
      */
     public static function render()
     {
-        
         if ($_GET['action'] == 'show') {
             $id = $_GET['id'];
             $mail = Mail::find($id);

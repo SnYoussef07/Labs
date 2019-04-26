@@ -9,7 +9,7 @@
         <div class="col-md-9">
           <!-- newsletter form -->
           <?php include plugin_dir_path(__FILE__) . "../includes/notice-new.php";?>
-          <form class="nl-form" action="<?=get_admin_url() . '/?action=save-newsletter';?>" method="post">
+          <form class="nl-form" action="<?= admin_url('admin-post.php'); ?>" method="post">
           <?php
             if(isset($_SESSION['mailNew'])){
               $maValue = $_SESSION['mailNew'];
