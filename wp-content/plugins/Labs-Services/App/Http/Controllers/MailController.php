@@ -49,6 +49,12 @@ class MailController
                 'status' => 'danger',
                 'message' => 'Une erreur est survenue, veuillez réessayer plus tard',
             ];
+            $_SESSION['old'] = [
+                'email' => $email,
+                'name' => $name,
+                'subject' => $subject,
+                'message' => $message,
+            ];
         }
         // la fonction wp_safe_redirect redirige vers une url. La fonction wp_get_referer renvoi vers la page d'ou la requête a été envoyé.
         wp_safe_redirect(wp_get_referer());
