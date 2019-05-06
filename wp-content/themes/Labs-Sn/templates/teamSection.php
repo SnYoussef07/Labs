@@ -2,7 +2,7 @@
 <?php
 $args1 = [
     'post_type' => 'team',
-    'posts_per_page' => 1,
+    'posts_per_page' => 2,
     'orderby' => 'rand',
     'category_name' => 'other'
 ];
@@ -15,13 +15,6 @@ $args2 = [
 ];
 $query2 = new WP_Query($args2);
 
-$args3 = [
-  'post_type' => 'team',
-  'posts_per_page' => 1,
-  'orderby' => 'rand',
-  'category_name' => 'other'
-];
-$query3 = new WP_Query($args3);
 ?>
 
 <div class="team-section spad">
@@ -32,19 +25,37 @@ $query3 = new WP_Query($args3);
       </div>
       <div class="row">
         <!-- 1 -->
+        <?php 
+          $i = 0;
+        ?>
     <?php while ($query1->have_posts()): $query1->the_post();?>
       <!-- single member -->
-      <div class="col-sm-4">
-        <div class="member">
-          <img src="<?php the_post_thumbnail_url();?>" alt="">
-          <h2><?=the_title();?></h2>
-          <h3><?=the_content();?></h3>
-        </div>
-      </div>
+      <?php
+      $i++;
+      $i == 1 ? 
+        $post1 = [
+          "title" => get_the_title(),
+          "content" => get_the_content(),
+          "url" => get_the_post_thumbnail_url()
+        ]
+        :
+        $post2 = [
+          "title" => get_the_title(),
+          "content" => get_the_content(),
+          "url" => get_the_post_thumbnail_url()
+        ]
+      ?>
     <?php
     endwhile;
     wp_reset_postdata();
     ?>
+    <div class="col-sm-4">
+        <div class="member">
+          <img src="<?= $post1['url']; ?>" alt="">
+          <h2><?= $post1['title']; ?></h2>
+          <h3><?= $post1['content']; ?></h3>
+        </div>
+      </div>
     <!-- 2 -->
     <?php while ($query2->have_posts()): $query2->the_post();?>
       <!-- single member -->
@@ -60,19 +71,13 @@ $query3 = new WP_Query($args3);
     wp_reset_postdata();
     ?>
     <!-- 3 -->
-    <?php while ($query3->have_posts()): $query3->the_post();?>
-      <!-- single member -->
-      <div class="col-sm-4">
+    <div class="col-sm-4">
         <div class="member">
-          <img src="<?php the_post_thumbnail_url();?>" alt="">
-          <h2><?=the_title();?></h2>
-          <h3><?=the_content();?></h3>
+          <img src="<?= $post2['url']; ?>" alt="">
+          <h2><?= $post2['title']; ?></h2>
+          <h3><?= $post2['content']; ?></h3>
         </div>
       </div>
-    <?php
-    endwhile;
-    wp_reset_postdata();
-    ?>
 
       </div>
     </div>
